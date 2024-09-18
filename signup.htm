@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="assets/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/signup.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HourGlass Corp - sign up</title>
+  </head>
+  <body>
+    <div class="signup-container">
+      <div class="signup-form">
+        <div>
+            <img src="assets/mainLogo.jpg" alt="">
+        </div>
+        <div>
+            <h1>Sign Up</h1>
+           <blockquote>
+            <p class="badge">
+                <span>1</span>
+              </p>
+              <p class="badge">
+                <span>2</span>
+              </p>
+           </blockquote>
+           <form id="signup-form">
+            <div class="form-step active">
+              <input type="text" name="name" placeholder="name" required />
+              <input type="text" name="phone" placeholder="Phone Number" required />
+              <input type="text" name="leader" placeholder="Community Leader" required />
+              <br>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+            <!-- Step 2 -->
+            <div class="form-step">
+                <input type="text" name="address" placeholder="Address" required />
+                <input type="text" name="lga" placeholder="Local Government" required />
+                <input type="text" name="sor" placeholder="State of Origin" required />
+              <div class="btnGroup">
+                <button type="button" class="prev-btn">Previous</button>
+              <button type="submit" class="submit-btn">Sign Up</button>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
