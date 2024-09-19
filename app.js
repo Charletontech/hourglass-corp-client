@@ -105,6 +105,26 @@ form.addEventListener("submit", (e) => {
       "Content-Type": "application/json",
     }),
   };
-  fetch("http://localhost:5000/signup", fetchOptions);
-  console.log(signUpData);
+  fetch("http://localhost:5000/signup", fetchOptions)
+    .then((res) => {
+      if (res.ok) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          iconColor: "#e47734",
+          title: "Success",
+          text: "You have been successfully registered. Welcome aboard!",
+          showConfirmButton: false,
+          timer: 10000,
+        });
+      } else {
+        alert(
+          "An error occurred (nodemailer), we are unable to register you. Kindly try again. Thank you."
+        );
+      }
+    })
+    .catch((err) => {
+      alert("An unexpected error occurred");
+      console.log(err);
+    });
 });
