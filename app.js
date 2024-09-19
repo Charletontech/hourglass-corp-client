@@ -106,6 +106,7 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(signUpData),
     headers: new Headers({
       "Content-Type": "application/json",
+      credentials: 'include',
     }),
   };
   fetch("https://hourglass-corp-server.onrender.com/signup", fetchOptions)
