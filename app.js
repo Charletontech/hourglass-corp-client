@@ -48,6 +48,9 @@ left2.forEach((element) => {
 
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
+  // refresh server
+
+  // multi-step form logic
   const nextBtns = document.querySelectorAll(".next-btn");
   const prevBtns = document.querySelectorAll(".prev-btn");
   const formSteps = document.querySelectorAll(".form-step");
@@ -105,7 +108,7 @@ form.addEventListener("submit", (e) => {
       "Content-Type": "application/json",
     }),
   };
-  fetch("https://hourglass-corp-server.onrender.com", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/signup", fetchOptions)
     .then((res) => {
       if (res.ok) {
         Swal.fire({
