@@ -105,7 +105,7 @@ form.addEventListener("submit", (e) => {
       "Content-Type": "application/json",
     }),
   };
-  fetch("http://localhost:5000/signup", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com", fetchOptions)
     .then((res) => {
       if (res.ok) {
         Swal.fire({
