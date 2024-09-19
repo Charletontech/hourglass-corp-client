@@ -18,7 +18,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: var(--lt-orange);
 }
 
 .signup-container {
@@ -36,7 +36,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 102vh;
+  overflow: auto;
   margin-top: -2rem;
 }
 
@@ -44,6 +45,7 @@ body {
   width: 80%;
   height: 100%;
   margin: auto;
+  transform: translateY(30px);
   display: block;
   border-radius: 42% 58% 50% 50% / 43% 34% 66% 57%;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
@@ -58,14 +60,17 @@ body {
   height: 75%;
   padding-top: 1rem;
   width: 100%;
+  overflow-y: auto;
 }
 
 h1 {
   color: var(--orange);
   text-align: center;
+  transform: translateY(20px);
 }
 
 .badge {
+  transform: translateY(20px);
   width: 30px;
   height: 30px;
   border-radius: 30px;
@@ -87,7 +92,7 @@ h1 {
 }
 
 blockquote {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   width: 100%;
   display: flex;
   gap: 5px;
@@ -109,7 +114,7 @@ form div:nth-child(2) {
 /* here */
 .signup-form {
   background-color: #fff;
-  padding: 30px;
+  padding: 10px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
@@ -189,5 +194,9 @@ button:hover {
 
   .signup-form div img {
     width: 104%;
+  }
+
+  .signup-form div:nth-child(2) {
+    height: 110%;
   }
 }
