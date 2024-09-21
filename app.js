@@ -49,7 +49,7 @@ left2.forEach((element) => {
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
   // refresh server
-
+  fetch("https://hourglass-corp-server.onrender.com/refresh-server");
   // multi-step form logic
   const nextBtns = document.querySelectorAll(".next-btn");
   const prevBtns = document.querySelectorAll(".prev-btn");
