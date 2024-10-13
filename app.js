@@ -49,7 +49,7 @@ left2.forEach((element) => {
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
   // refresh server
-  fetch("http://localhost:5000/refresh-server");
+  fetch("https://hourglass-corp-server.onrender.com/refresh-server");
 
   // multi-step form logic
   const nextBtns = document.querySelectorAll(".next-btn");
@@ -121,7 +121,7 @@ form.addEventListener("submit", (e) => {
     }),
   };
 
-  fetch("http://localhost:5000/signup", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/signup", fetchOptions)
     .then((res) => {
       res.json().then((data) => {
         if (res.ok) {
