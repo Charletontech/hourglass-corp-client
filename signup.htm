@@ -16,17 +16,20 @@
         </div>
         <div>
             <h1>Sign Up</h1>
-           <blockquote>
+           <blockquote style="margin-bottom: 1.7rem;">
             <p class="badge">
                 <span>1</span>
               </p>
               <p class="badge">
                 <span>2</span>
               </p>
+              <p class="badge">
+                <span>3</span>
+              </p>
            </blockquote>
            <form id="signup-form">
             <div class="form-step active">
-              <input type="text" name="name" placeholder="name" required />
+              <input type="text" name="name" placeholder="Name" required />
               <input type="text" name="phone" placeholder="Phone Number" required />
               <input type="text" name="leader" placeholder="Community Leader" required />
               <br>
@@ -34,14 +37,24 @@
             </div>
             <!-- Step 2 -->
             <div class="form-step">
-                <input type="text" name="address" placeholder="Address" required />
-                <input type="text" name="lga" placeholder="Local Government" required />
-                <input type="text" name="sor" placeholder="State of Origin" required />
+              <input type="text" name="address" placeholder="Address" required />
+              <input type="text" name="lga" placeholder="Local Government" required />
               <div class="btnGroup">
                 <button type="button" class="prev-btn">Previous</button>
-              <button type="submit" class="submit-btn">Sign Up</button>
+                <button type="button" class="next-btn">Next</button>
+                <!-- <button type="button" class="prev-btn">Previous</button>
+              <button type="submit" class="submit-btn">Sign Up</button> -->
               </div>
             </div>
+            <!-- step 3 -->
+            <div class="form-step">
+              <input type="text" name="sor" placeholder="State of Origin" required />
+              <input type="text" name="bvn" placeholder="BVN number" required />
+            <div class="btnGroup">
+              <button type="button" class="prev-btn">Previous</button>
+            <button type="submit" class="submit-btn">Sign Up</button>
+            </div>
+          </div>
           </form>
         </div>
        
