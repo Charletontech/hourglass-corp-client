@@ -38,7 +38,7 @@ body {
   width: 100%;
   height: 102vh;
   overflow: auto;
-  margin-top: -2rem;
+  margin-top: -1rem;
 }
 
 .signup-form div img {
@@ -170,10 +170,16 @@ button {
 button:hover {
   background-color: var(--lt-orange);
 }
-.next-btn,
-.prev-btn {
+.next-btn {
   background-color: var(--orange);
 }
+
+.prev-btn {
+  background-color: #f7deca;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
 .submit-btn {
   background-color: #4caf50;
   margin-top: 4px;
