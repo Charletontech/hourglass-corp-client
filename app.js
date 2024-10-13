@@ -49,7 +49,8 @@ left2.forEach((element) => {
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
   // refresh server
-  fetch("https://hourglass-corp-server.onrender.com/refresh-server");
+  fetch("http://localhost:5000/refresh-server");
+
   // multi-step form logic
   const nextBtns = document.querySelectorAll(".next-btn");
   const prevBtns = document.querySelectorAll(".prev-btn");
@@ -92,11 +93,22 @@ document.addEventListener("DOMContentLoaded", function () {
   updateFormSteps();
 });
 
-// Handle submit sign up form
+// HANDLE SUBMIT SIGN UP
 var signUpData = {};
 var form = document.getElementById("signup-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  // alert user to wait...
+  Swal.fire({
+    position: "center",
+    icon: "info",
+    // iconColor: "#e47734",
+    title: "Processing...",
+    text: `Please wait while we create your account. This might take a while depending on your network, don't close this page during this time please.`,
+    showConfirmButton: false,
+  });
+
   const formData = new FormData(form);
   for (const [key, value] of formData) {
     signUpData[key] = value;
@@ -106,26 +118,52 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(signUpData),
     headers: new Headers({
       "Content-Type": "application/json",
-      credentials: 'include',
     }),
   };
-  fetch("https://hourglass-corp-server.onrender.com/signup", fetchOptions)
+
+  fetch("http://localhost:5000/signup", fetchOptions)
     .then((res) => {
-      if (res.ok) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          iconColor: "#e47734",
-          title: "Success",
-          text: "You have been successfully registered. Welcome aboard!",
-          showConfirmButton: false,
-          timer: 10000,
-        });
-      } else {
-        alert(
-          "An error occurred (nodemailer), we are unable to register you. Kindly try again. Thank you."
-        );
-      }
+      res.json().then((data) => {
+        if (res.ok) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            iconColor: "#e47734",
+            title: "Success",
+            text: "You have been successfully registered. Welcome aboard!",
+            showConfirmButton: false,
+            html: `
+                    <p><b style="color: #e47734">Customer</b>:  <br> ${data.message.customer}</p>
+                    <br>
+                    <p><b style="color: #e47734">Account name</b>:  <br> ${data.message.accountName}</p>
+                    <br>
+                    <p><b style="color: #e47734">Account number</b>:  <br> ${data.message.accountNo}</p>
+                    <br>
+                    <p><b style="color: #e47734">Status</b>:  <br> ${data.message.regStatus}</p>
+                    `,
+          });
+        } else if (res.status === 501) {
+          Swal.fire({
+            position: "center",
+            icon: "info",
+            iconColor: "#e47734",
+            title: "We had an issue!",
+            text: `${data.message}`,
+            showConfirmButton: true,
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            iconColor: "#e47734",
+            title: "Oops!",
+            text: `${data.message}`,
+            showConfirmButton: true,
+            timer: 15000,
+          });
+          console.log("error");
+        }
+      });
     })
     .catch((err) => {
       alert("An unexpected error occurred");
