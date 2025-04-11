@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="./assets/logo2.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css"
+    />
+    <link rel="stylesheet" href="style/dashboard.css" />
+  </head>
+  <body>
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <img src="assets/login-illustration.jpg" alt="Illustration" />
+        <h2>Session Expired!</h2>
+        <a href="/login.htm" class="btn-login">Login</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="navbar">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="logo">
+          <img src="assets/logo3.png" alt="Logo" />
+        </div>
+        <div class="user-avatar">
+          <img src="assets/add-contact.png" alt="User" />
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar" id="sidebar">
+        <button onclick="toggleSidebar()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#fff"
+          >
+            <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+          </svg>
+        </button>
+        <ul>
+          <li><span>🏠</span> Dashboard</li>
+          <li><span>🛠️</span> Services</li>
+          <!-- <li><span>💳</span> Wallet</li> -->
+          <!-- <li><span>📜</span> Transactions</li> -->
+          <li><span>🚪</span> Log-out</li>
+        </ul>
+        <div class="wallet-balance">
+          Wallet Balance<br />
+          <strong>₦<span></span></strong>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="top-bar">
+          <button class="btn">Home</button>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>User Details</h3>
+            <p><strong></strong></p>
+            <p>Phone No: <span></span></p>
+          </div>
+
+          <div class="card">
+            <p>₦<span></span></p>
+            <button class="btn" id="fundBtn">Fund Wallet</button>
+          </div>
+        </div>
+
+        <h3>Services</h3>
+        <div class="services">
+          <div class="service-card">
+            <h4>NIN Validation</h4>
+            <p>Verify people using their National Identity Number.</p>
+            <button class="btn" id="ninValidationBtn">Use Service</button>
+          </div>
+          <div class="service-card">
+            <h4>Suspended NIN</h4>
+            <span class="badge">Service Available</span>
+            <p>Restore Suspended NIN numbers</p>
+            <button class="btn" onclick="handleSuspendedNinBtn()">
+              Use Service
+            </button>
+            <div class="price">₦5000</div>
+          </div>
+          <div class="service-card">
+            <h4>Data Modification</h4>
+            <span class="badge">Service Available</span>
+            <p>
+              Modify/Update your data on your NIN. This could be Name, Data of
+              Birth or Phone number
+            </p>
+            <button class="btn" onclick="handleDataModificationBtn()">
+              Use Service
+            </button>
+            <div class="price">from ₦12000</div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/dashboard.js"></script>
+    <script src="https://js.paystack.co/v2/inline.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
+  </body>
+</html>

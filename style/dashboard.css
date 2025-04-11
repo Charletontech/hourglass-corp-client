@@ -1,0 +1,209 @@
+:root {
+  --orange: #e47734;
+  --lt-orange: #eb9f5f;
+  --lg-blue: #00c4cc;
+  --blue: #058194;
+  --blue-2: #044c6c;
+  --dk-blue: #0a1a44;
+  --navy-blue: #0e1a25;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  color: #ff735c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-content img {
+  width: 300px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
+
+.btn-login {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00aaff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(
+    to bottom right,
+    #00c4cc 20%,
+    #058194,
+    #044c6c,
+    #0a1a44
+  );
+  /* background-color: #e47734; */
+}
+
+.hamburger {
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 6rem;
+  height: 5rem;
+}
+
+.user-avatar img {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background: #012b3f;
+  color: white;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar button {
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+  margin-left: 215px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+}
+
+.wallet-balance {
+  margin-top: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.top-bar {
+  margin-bottom: 1.5rem;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  padding: 20px;
+  background: #0e1a25;
+  color: white;
+  border-radius: 8px;
+}
+
+.card h3 {
+  color: var(--lg-blue);
+}
+
+.services {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  flex: 1;
+  min-width: 250px;
+  padding: 20px;
+  background: #d2f3ff;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  background: #cdecc0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.price {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-weight: bold;
+}
+
+.btn {
+  background: #012b3f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 100;
+    height: 100vh;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
