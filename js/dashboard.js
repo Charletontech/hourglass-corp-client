@@ -38,6 +38,16 @@ function getWalletBalance() {
 // Handle fund wallet/payment logic
 const fundBtn = document.getElementById("fundBtn");
 fundBtn.addEventListener("click", async () => {
+  // warn user about funding amount issues
+  await Swal.fire({
+    position: "center",
+    icon: "info",
+    title: "Disclaimer!",
+    text: "Ensure that the amount you input here is exactly the same as the amount you want to you will fund into our account. This if it doesn't match your wallet may not be funded at all.",
+    showConfirmButton: true,
+    confirmButtonText: "I understand",
+    confirmButtonColor: "#044c6c",
+  });
   // prompt user to input fundAmount
   var { value: fundAmount } = await Swal.fire({
     title: "Fund Wallet",
