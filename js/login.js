@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
     }),
   };
 
-  fetch("http://localhost:5000/login", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/login", fetchOptions)
     .then((res) => {
       res.json().then((data) => {
         console.log(data.message);
