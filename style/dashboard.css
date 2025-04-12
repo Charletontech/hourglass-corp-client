@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --orange: #e47734;
   --lt-orange: #eb9f5f;
@@ -10,8 +12,10 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
+  line-height: 20px;
 }
+
 
 .overlay {
   position: fixed;
