@@ -1,19 +1,3 @@
-//logic for passing disclaimer
-const disclaimerText = document.getElementById("disclaimerText");
-const containerWidth = document.querySelector(".disclaimer").offsetWidth;
-let position = containerWidth;
-
-function scrollDisclaimer() {
-  position--;
-  if (position + disclaimerText.offsetWidth < 0) {
-    position = containerWidth; // Reset position to the right
-  }
-  disclaimerText.style.transform = `translateX(${position}px)`;
-  requestAnimationFrame(scrollDisclaimer);
-}
-
-// Initialize the scrolling
-scrollDisclaimer();
 
 // Grabbing elements
 const up = document.querySelectorAll(".up");
