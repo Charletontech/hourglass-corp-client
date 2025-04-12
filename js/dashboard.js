@@ -43,7 +43,7 @@ fundBtn.addEventListener("click", async () => {
     position: "center",
     icon: "info",
     title: "Disclaimer!",
-    text: "Ensure that the amount you input here is exactly the same as the amount you want to you will fund into our account. This if it doesn't match your wallet may not be funded at all.",
+    text: "Ensure that the amount you input here is exactly the same as the amount you will fund into our account. This if it doesn't match your wallet may not be funded at all.",
     showConfirmButton: true,
     confirmButtonText: "I understand",
     confirmButtonColor: "#044c6c",
