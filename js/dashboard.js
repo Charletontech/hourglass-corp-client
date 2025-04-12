@@ -18,7 +18,7 @@ document.querySelector(".card p span").innerHTML = userData.phone;
 // update balance logic
 getWalletBalance();
 function getWalletBalance() {
-  fetch(`http://localhost:5000/get-balance?phone=${userData.phone}`)
+  fetch(`https://hourglass-corp-server.onrender.com/get-balance?phone=${userData.phone}`)
     .then((res) => {
       res.json().then((data) => {
         if (res.ok) {
@@ -107,7 +107,7 @@ async function verifyTransaction(reference, fundAmount, phone) {
     }),
   };
 
-  fetch("http://localhost:5000/verify-payment", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/verify-payment", fetchOptions)
     .then((res) => {
       if (res.ok) {
         Swal.fire({
@@ -132,7 +132,7 @@ async function verifyTransaction(reference, fundAmount, phone) {
 
 async function getAccess() {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:5000/get-access")
+    fetch("https://hourglass-corp-server.onrender.com/get-access")
       .then((res) => {
         res.json().then((data) => {
           if (res.ok) {
@@ -229,7 +229,7 @@ function submitNinValidation(ninValidationType, nin) {
       "Content-Type": "application/json",
     }),
   };
-  fetch("http://localhost:5000/nin-validation", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/nin-validation", fetchOptions)
     .then((res) => {
       res.json().then((data) => {
         if (res.ok) {
@@ -304,7 +304,7 @@ function submitSuspendedNin(nin) {
       "Content-Type": "application/json",
     }),
   };
-  fetch("http://localhost:5000/suspended-nin", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/suspended-nin", fetchOptions)
     .then((res) => {
       res.json().then((data) => {
         if (res.ok) {
@@ -427,7 +427,7 @@ async function handleDataModificationBtn() {
           "Content-Type": "application/json",
         }),
       };
-      fetch("http://localhost:5000/data-modification", fetchOptions)
+      fetch("https://hourglass-corp-server.onrender.com/data-modification", fetchOptions)
         .then((res) => {
           res.json().then((data) => {
             if (res.ok) {
