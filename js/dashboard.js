@@ -72,7 +72,8 @@ fundBtn.addEventListener("click", async () => {
   popup.checkout({
     key: access.access,
     email: userData.email,
-    amount: fundAmount,
+    amount: fundAmount * 100,
+    currency: "NGN",
     onSuccess: (transaction) => {
       // console.log(transaction);
       verifyTransaction(transaction.reference, fundAmount, userData.phone);
