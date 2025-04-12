@@ -121,7 +121,7 @@ form.addEventListener("submit", (e) => {
     }),
   };
 
-  fetch("http://localhost:5000/signup", fetchOptions)
+  fetch("https://hourglass-corp-server.onrender.com/signup", fetchOptions)
     .then((res) => {
       res.json().then((data) => {
         if (res.ok) {
