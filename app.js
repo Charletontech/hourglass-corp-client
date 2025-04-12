@@ -132,15 +132,7 @@ form.addEventListener("submit", (e) => {
             title: "Success",
             text: "You have been successfully registered. Welcome aboard!",
             showConfirmButton: false,
-            html: `
-                    <p><b style="color: #e47734">Customer</b>:  <br> ${data.message.customer}</p>
-                    <br>
-                    <p><b style="color: #e47734">Account name</b>:  <br> ${data.message.accountName}</p>
-                    <br>
-                    <p><b style="color: #e47734">Account number</b>:  <br> ${data.message.accountNo}</p>
-                    <br>
-                    <p><b style="color: #e47734">Status</b>:  <br> ${data.message.regStatus}</p>
-                    `,
+           
           });
         } else if (res.status === 501) {
           Swal.fire({
