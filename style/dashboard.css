@@ -31,6 +31,24 @@ body {
   z-index: 1000;
 }
 
+
+.disclaimer {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  font-size: 14px;
+  height: 30px; 
+}
+
+.disclaimer span {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+}
+
 .overlay.hidden {
   display: none;
 }
