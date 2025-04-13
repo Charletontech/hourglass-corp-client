@@ -37,20 +37,26 @@ form.addEventListener("submit", (e) => {
       res.json().then((data) => {
         console.log(data.message);
         if (res.ok) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            iconColor: "#e47734",
-            title: "Success",
-            html: `<p style="text-align: center;"> Sign in successful. <br> Welcome back! ${
-              JSON.parse(data.message).name
-            }<p>`,
-            showConfirmButton: false,
-          });
-
-          // save user data in session
-          sessionStorage.setItem("hourglassUserData", data.message);
-          window.location.href = "/dashboard.htm";
+            // check if user is admin
+          if (data?.isAdmin) {
+            // redirect to admin dashboard
+            window.location.href = "/admin.htm";
+            sessionStorage.setItem("hourglassAdmin", "admin");
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              iconColor: "#e47734",
+              title: "Success",
+              html: `<p style="text-align: center;"> Sign in successful. <br> Welcome back! ${
+                JSON.parse(data.message).name
+              }<p>`,
+              showConfirmButton: false,
+            });
+            // save user data in session
+            sessionStorage.setItem("hourglassUserData", data.message);
+            window.location.href = "/dashboard.htm";
+          }
         } else if (res.status === 400) {
           Swal.fire({
             position: "center",
