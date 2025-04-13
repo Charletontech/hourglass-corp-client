@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "https://hourglass-corp-server.onrender.com/get-request-history"
       );
       const data = await response.json();
-      populateTable(data.message);
+      populateTable(data.message.reverse());
       // Check if the response is empty and display a message
       if (data.message.length === 0) {
         tableBody.innerHTML =
