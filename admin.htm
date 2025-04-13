@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style/admin.css" />
+    <script defer src="js/admin-dashboard.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h1>Admin Dashboard</h1>
+      <button id="logoutButton">log out admin</button>
+      <table id="requestTable" border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Service</th>
+            <th>Category</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically populated here -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/admin-dashboard.js"></script>
