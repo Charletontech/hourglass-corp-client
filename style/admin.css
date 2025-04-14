@@ -1,4 +1,18 @@
-/* filepath: c:\Users\Macintosh HD\Documents\Tech\hourglass-corp-client-main\style\style.css */
+.updateBalanceButton {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #044c6c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.updateBalanceButton:hover {
+  background-color: #033a54;
+}
+
 .dashboard-container {
   padding: 20px;
   font-family: Arial, sans-serif;
