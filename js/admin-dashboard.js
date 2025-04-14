@@ -102,3 +102,75 @@ document.getElementById("logoutButton").addEventListener("click", () => {
   sessionStorage.removeItem("hourglassAdmin");
   window.location.href = "/index.html";
 });
+
+// Add event listener to the "Update User Balance" button
+document
+  .getElementById("updateBalanceButton")
+  .addEventListener("click", async () => {
+    // Show SweetAlert form
+    const { value: formValues } = await Swal.fire({
+      title: "Update User Balance",
+      html: `
+      <input id="phone" class="swal2-input" placeholder="Phone" type="text">
+      <input id="newBalance" class="swal2-input" placeholder="New Balance" type="number">
+    `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: "Update",
+      preConfirm: () => {
+        const phone = document.getElementById("phone").value;
+        const newBalance = document.getElementById("newBalance").value;
+
+        if (!phone || !newBalance) {
+          Swal.showValidationMessage("Both fields are required!");
+          return null;
+        }
+
+        return { phone, newBalance };
+      },
+    });
+
+    // If the form is submitted
+    if (formValues) {
+      const { phone, newBalance } = formValues;
+
+      try {
+        // Make the PUT request to update the balance
+        const response = await fetch(
+          `https://hourglass-corp-server.onrender.com/update-balance/${phone}/${newBalance}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const result = await response.json();
+
+        if (response.ok) {
+          // Success response
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: result.message,
+          });
+        } else {
+          // Error response
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: result.message,
+          });
+        }
+      } catch (error) {
+        console.error("Error updating balance:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An error occurred while updating the balance. Please try again.",
+        });
+      }
+    }
+  });
+
