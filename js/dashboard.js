@@ -471,3 +471,51 @@ async function handleDataModificationBtn() {
     }
   }
 }
+
+// REQUEST HISTORY LOGIC
+const tableBody = document.querySelector("#requestTable tbody");
+tableBody.innerHTML =
+  "<tr style='border: none;'><td colspan='6' style='text-align: center; '>Fetching your request history...</td></tr>";
+
+// Fetch data from the API
+async function fetchRequestHistory() {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/user-request-history?user=${userData.phone}`
+    );
+    const data = await response.json();
+    populateTable(data.message.reverse());
+    // Check if the response is empty and display a message
+    if (data.message.length === 0) {
+      tableBody.innerHTML =
+        "<tr><td colspan='6' style='text-align: center;'>You have no request history.</td></tr>";
+    }
+  } catch (error) {
+    console.error("Error fetching request history:", error);
+    tableBody.innerHTML =
+      "<tr style='border: none;'><td colspan='6' style='text-align: center; '> Unable to fetch history</td></tr>";
+  }
+}
+fetchRequestHistory();
+
+// Populate the table with data
+function populateTable(data) {
+  tableBody.innerHTML = ""; // Clear existing rows
+  data.forEach((item) => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${item.id}</td>
+      <td>${item.service}</td>
+      <td>${item.category || "N/A"}</td>
+      <td style='text-transform: capitalize;'>${item.status}</td>
+          `;
+
+    tableBody.appendChild(row);
+  });
+
+  // Add event listeners to dropdowns
+  document.querySelectorAll(".status-dropdown").forEach((dropdown) => {
+    dropdown.addEventListener("change", handleStatusChange);
+  });
+}
