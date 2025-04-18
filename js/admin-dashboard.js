@@ -47,12 +47,26 @@ document.addEventListener("DOMContentLoaded", () => {
             <option value="pending" ${
               item.status === "pending" ? "selected" : ""
             }>Pending</option>
-            <option value="approved" ${
-              item.status === "approved" ? "selected" : ""
-            }>Approved</option>
-            <option value="declined" ${
-              item.status === "declined" ? "selected" : ""
-            }>Declined</option>
+
+            <option value="successful" ${
+              item.status === "successful" ? "selected" : ""
+            }>Successful</option>
+
+            <option value="failed" ${
+              item.status === "failed" ? "selected" : ""
+            }>Failed</option>
+
+            <option value="By-pass" ${
+              item.status === "By-pass" ? "selected" : ""
+            }>By pass</option>
+
+            <option value="No-record" ${
+              item.status === "No-record" ? "selected" : ""
+            }>No Record</option>
+
+             <option value="re-enrol" ${
+               item.status === "re-enrol" ? "selected" : ""
+             }>Re-enrol</option>
           </select>
         </td>
       `;
