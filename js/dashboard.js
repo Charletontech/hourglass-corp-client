@@ -481,7 +481,7 @@ tableBody.innerHTML =
 async function fetchRequestHistory() {
   try {
     const response = await fetch(
-      `http://localhost:5000/user-request-history?user=${userData.phone}`
+      `https://hourglass-corp-server.onrender.com/user-request-history?user=${userData.phone}`
     );
     const data = await response.json();
     populateTable(data.message.reverse());
