@@ -39,13 +39,8 @@
   color: #721c24;
   padding: 10px;
   font-size: 14px;
-  height: 30px; /* Ensures consistent height */
-}
-
-.disclaimer span {
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
+  height: 30px;
+  text-align: center;
 }
 
 .background {
