@@ -48,7 +48,7 @@ left2.forEach((element) => {
 });
 
 // LOGIC FOR SIGN UP PAGE
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   // refresh server
   fetch("https://hourglass-corp-server.onrender.com/refresh-server");
 
