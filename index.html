@@ -9,9 +9,9 @@
   </head>
   <body>
     <!-- Disclaimer Section -->
-    <div class="disclaimer" >
+   <div class="disclaimer" >
       <span id="disclaimerText" >
-        <b>Disclaimer:</b> Please ensure all information provided is accurate. HourGlass Co-operative Society will not be liable for any errors or discrepancies. <b>Information:</b> contact us via <i>hourglassnig@gmail.com</i>.
+         Contact us via: hourglassnig@gmail.com.
       </span>
     </div>
     <ul class="background">
@@ -140,23 +140,6 @@
       </div>
     </section>
     <script src="app.js"></script>
-    <script>
-    //logic for passing disclaimer
-const disclaimerText = document.getElementById("disclaimerText");
-const containerWidth = document.querySelector(".disclaimer").offsetWidth;
-let position = containerWidth;
-
-function scrollDisclaimer() {
-  position--;
-  if (position + disclaimerText.offsetWidth < 0) {
-    position = containerWidth; // Reset position to the right
-  }
-  disclaimerText.style.transform = `translateX(${position}px)`;
-  requestAnimationFrame(scrollDisclaimer);
-}
-
-// Initialize the scrolling
-scrollDisclaimer();
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
