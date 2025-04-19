@@ -52,6 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // refresh server
   fetch("https://hourglass-corp-server.onrender.com/refresh-server");
 
+  // Throw disclaimer alert
+  const showDisclaimerAlert = async () => {
+    Swal.fire({
+      position: "center",
+      icon: "info",
+      iconColor: "#058194",
+      title: "Disclaimer!",
+      text: `Submit only treatable work. As no refund will be done for jobs with bad report`,
+      showConfirmButton: true,
+      confirmButtonColor: "#058194",
+    });
+  };
+  await showDisclaimerAlert();
+
   // multi-step form logic
   const nextBtns = document.querySelectorAll(".next-btn");
   const prevBtns = document.querySelectorAll(".prev-btn");
