@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="assets/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/signup.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HourGlass Corp - sign up</title>
+  </head>
+  <body>
+    <div class="signup-container">
+      <div class="signup-form">
+        <div>
+            <img src="assets/mainLogo.jpg" alt="">
+        </div>
+        <div>
+            <h1>Sign Up</h1>
+           <blockquote style="margin-bottom: 1.7rem;">
+            <p class="badge">
+                <span>1</span>
+              </p>
+              <p class="badge">
+                <span>2</span>
+              </p>
+              <p class="badge">
+                <span>3</span>
+              </p>
+           </blockquote>
+           <form id="signup-form">
+            <div class="form-step active">
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="text" name="phone" placeholder="Phone Number" required />
+              <input type="text" name="email" placeholder="Email" required />
+              <br>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+            <!-- Step 2 -->
+            <div class="form-step">
+              <input type="password" name="password" placeholder="Password" required />
+              <input type="text" name="address" placeholder="Address" required />
+              <input type="text" name="lga" placeholder="Local Government" required />
+              <div class="btnGroup">
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+                <!-- <button type="button" class="prev-btn">Previous</button>
+              <button type="submit" class="submit-btn">Sign Up</button> -->
+              </div>
+            </div>
+            <!-- step 3 -->
+            <div class="form-step">
+              <input type="text" name="sor" placeholder="State of Origin" required />
+              <input type="text" name="businessName" placeholder="Business Name" />
+            <div class="btnGroup">
+              <button type="button" class="prev-btn">Previous</button>
+            <button type="submit" class="submit-btn">Sign Up</button>
+            </div>
+          </div>
+          </form>
+        </div>
+       
+    </div>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
+  </body>
+</html>
