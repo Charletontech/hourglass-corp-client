@@ -640,6 +640,7 @@ async function handleSharedFileBtn() {
       service: "Shared NIN File",
       phone: userData.phone,
       name: userData.name,
+      category: serviceType,
     }),
     headers: new Headers({
       "Content-Type": "application/json",

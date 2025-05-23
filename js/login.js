@@ -1,7 +1,7 @@
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
   // refresh server
-  // fetch("https://hourglass-corp-server.onrender.com/refresh-server");
+  fetch("https://hourglass-corp-server.onrender.com/refresh-server");
 });
 
 // HANDLE SUBMIT SIGN UP
