@@ -9,13 +9,21 @@
   </head>
   <body>
     <div class="dashboard-container">
+      <nav>
+        <ul>
+          <li><a href="#requestTable">Requests</a></li>
+          <li><a href="#agents">Agents</a></li>
+          <li><a href="/login.htm">Log Out</a></li>
+        </ul>
+      </nav>
       <h1>Admin Dashboard</h1>
       <button id="logoutButton" class="updateBalanceButton">
         Log Out Admin
       </button>
       <button id="updateBalanceButton" class="updateBalanceButton">
-        Update User Balance
+        Update Agent Balance
       </button>
+      <h2>All Request</h2>
       <table id="requestTable" border="1">
         <thead>
           <tr>
@@ -28,6 +36,27 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Rows will be dynamically populated here -->
+        </tbody>
+      </table>
+
+      <h2>All Agents</h2>
+      <table id="agents" border="1">
+        <thead>
+          <tr>
+            <th>Agent ID</th>
+            <th>Agent Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Balance</th>
+            <th>Address</th>
+            <th>LGA</th>
+            <th>State of Origin</th>
+            <th>Business Name</th>
+            <!-- <th>Actions</th> -->
+          </tr>
+        </thead>
+        <tbody id="agentsTableBody">
           <!-- Rows will be dynamically populated here -->
         </tbody>
       </table>

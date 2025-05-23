@@ -80,6 +80,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // FETCH ALL AGENTS DATA FROM API
+  async function fetchAgents() {
+    try {
+      const response = await fetch(
+        "https://hourglass-corp-server.onrender.com/get-all-users"
+      );
+      const data = await response.json();
+      populateAgentsTable(data.message.reverse());
+      // Check if the response is empty and display a message
+      if (data.message.length === 0) {
+        tableBody.innerHTML =
+          "<tr><td colspan='6' style='text-align: center;'>No Registered Agents available.</td></tr>";
+      }
+    } catch (error) {
+      console.error("Error fetching request history:", error);
+    }
+  }
+
+  // Populate the table with data
+  function populateAgentsTable(data) {
+    const agentsTableBody = document.querySelector("#agents tbody");
+    agentsTableBody.innerHTML = ""; // Clear existing rows
+    data.forEach((item) => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.phone}</td>
+        <td>${item.email}</td>
+        <td>${item.wallet}</td>
+        <td>${item.address}</td>
+        <td>${item.lga}</td>
+        <td>${item.sor}</td>
+        <td>${item.businessName}</td>
+      `;
+
+      agentsTableBody.appendChild(row);
+    });
+
+    // Add event listeners to dropdowns
+    document.querySelectorAll(".status-dropdown").forEach((dropdown) => {
+      dropdown.addEventListener("change", handleStatusChange);
+    });
+  }
+
   // Handle status change
   async function handleStatusChange(event) {
     const dropdown = event.target;
@@ -110,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize the dashboard
   fetchRequestHistory();
+  fetchAgents();
 });
 // Add event listener to the logout button
 document.getElementById("logoutButton").addEventListener("click", () => {
@@ -187,4 +234,3 @@ document
       }
     }
   });
-
