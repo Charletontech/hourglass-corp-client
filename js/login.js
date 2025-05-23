@@ -1,7 +1,7 @@
 // LOGIC FOR SIGN UP PAGE
 document.addEventListener("DOMContentLoaded", function () {
   // refresh server
-  fetch("https://hourglass-corp-server.onrender.com/refresh-server");
+  // fetch("https://hourglass-corp-server.onrender.com/refresh-server");
 });
 
 // HANDLE SUBMIT SIGN UP
@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
     icon: "info",
     // iconColor: "#e47734",
     title: "Processing...",
-    text: `Please wait while we create your account. This might take a while depending on your network, don't close this page during this time please.`,
+    text: `Please wait while we verify your credentials.`,
     showConfirmButton: false,
   });
 

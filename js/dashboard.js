@@ -499,6 +499,187 @@ async function handleDataModificationBtn() {
   }
 }
 
+// handle Demographic button
+async function handleDemographicBtn() {
+  const { value: formValues } = await Swal.fire({
+    title: "Bio-data Form",
+    html:
+      `<input id="swal-input1" class="swal2-input demographicInput" placeholder="First Name">` +
+      `<input id="swal-input2" class="swal2-input demographicInput" placeholder="Middle Name">` +
+      `<input id="swal-input3" class="swal2-input demographicInput" placeholder="Last Name">` +
+      `<input id="swal-input6" class="swal2-input demographicInput" placeholder="Gender">` +
+      `<label>Date Of Birth:</label> <br>` +
+      `<input id="swal-input4" class="swal2-input demographicInput" type="date" placeholder="Date of Birth">` +
+      `<input id="swal-input5" class="swal2-input demographicInput" placeholder="Phone Number">`,
+    focusConfirm: false,
+    showCancelButton: true,
+    confirmButtonText: "Submit",
+    confirmButtonColor: "#044c6c",
+    cancelButtonColor: "#00c4cc",
+    preConfirm: () => {
+      const fields = document.querySelectorAll(".demographicInput");
+      fields.forEach((element) => {
+        if (element.value === "") {
+          Swal.showValidationMessage("You must fill all fields!");
+          return false;
+        }
+      });
+
+      return {
+        firstName: document.getElementById("swal-input1").value,
+        middleName: document.getElementById("swal-input2").value,
+        lastName: document.getElementById("swal-input3").value,
+        dateOfBirth: document.getElementById("swal-input4").value,
+        phoneNumber: document.getElementById("swal-input5").value,
+        gender: document.getElementById("swal-input6").value,
+        service: "NIN Search with Demographic",
+        phone: userData.phone,
+        name: userData.name,
+      };
+    },
+  });
+
+  if (formValues) {
+    // alert user to wait while processing
+    Swal.fire({
+      title: "Processing!",
+      html: "Please wait while we process your request...",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    const payload = {};
+    for (const key in formValues) {
+      payload[key] = formValues[key];
+    }
+    console.log(payload);
+
+    const fetchOptions = {
+      method: "post",
+      body: JSON.stringify(payload),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    };
+    fetch(
+      "https://hourglass-corp-server.onrender.com/nin-demographic-search",
+      fetchOptions
+    )
+      .then((res) => {
+        res.json().then((data) => {
+          if (res.ok) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Request sent",
+              text: `${data.message}`,
+              showConfirmButton: true,
+              confirmButtonColor: "#044c6c",
+            });
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "We had an issue!",
+              text: `${data.message}`,
+              footer: "Please contact Admin",
+              showConfirmButton: true,
+              confirmButtonColor: "#044c6c",
+            });
+          }
+        });
+      })
+      .catch((err) => {
+        alert("An unexpected error occurred");
+        console.log(err);
+      });
+  }
+}
+
+// Handle NIN shared file logic
+async function handleSharedFileBtn() {
+  const { value: serviceType } = await Swal.fire({
+    title: "Select Service Type",
+    input: "select",
+    inputOptions: {
+      Fap60: "Fap60",
+      "Fap30 (TYPE B)": " Fap30 (TYPE B)",
+      "Fap30(TYPE C)": "Fap30 (TYPE C)",
+    },
+    inputPlaceholder: "--Choose service type--",
+    showCancelButton: true,
+    confirmButtonText: "Next",
+    confirmButtonColor: "#044c6c",
+    cancelButtonColor: "#00c4cc",
+    inputValidator: (value) => {
+      return new Promise((resolve) => {
+        if (value !== "") {
+          resolve();
+        } else {
+          resolve("You need to indicate your preferred service type");
+        }
+      });
+    },
+  });
+
+  // alert user to wait while processing
+  Swal.fire({
+    title: "Processing!",
+    html: "Please wait while we process your request...",
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+
+  const fetchOptions = {
+    method: "post",
+    body: JSON.stringify({
+      service: "Shared NIN File",
+      phone: userData.phone,
+      name: userData.name,
+    }),
+    headers: new Headers({
+      "Content-Type": "application/json",
+    }),
+  };
+
+  fetch(
+    "https://hourglass-corp-server.onrender.com/shared-nin-file",
+    fetchOptions
+  )
+    .then((res) => {
+      res.json().then((data) => {
+        if (res.ok) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Request sent",
+            text: `${data.message}`,
+            showConfirmButton: true,
+            confirmButtonColor: "#044c6c",
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "We had an issue!",
+            text: `${data.message}`,
+            footer: "Please contact Admin",
+            showConfirmButton: true,
+            confirmButtonColor: "#044c6c",
+          });
+        }
+      });
+    })
+    .catch((err) => {
+      alert("An unexpected error occurred");
+      console.log(err);
+    });
+}
+
 // REQUEST HISTORY LOGIC
 const tableBody = document.querySelector("#requestTable tbody");
 tableBody.innerHTML =
