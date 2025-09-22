@@ -112,7 +112,13 @@
             <h4>NIN Search with Demographic</h4>
             <span class="badge">Service Available</span>
             <p>Search for NIN with demographic. This service is available.</p>
-            <button class="btn" onclick="handleDemographicBtn()">
+            <button
+              class="btn"
+              onclick="serviceUnavailable('NIN Search with Demographic')"
+            >
+              <!-- <button class="btn" onclick="handleDemographicBtn()"> -->
+              Use Service
+            </button>
               Use Service
             </button>
             <div class="price">from ₦3,500</div>
@@ -121,7 +127,8 @@
             <h4>Shared NIN File</h4>
             <span class="badge">Service Available</span>
             <p>Chose from any of Fap60, Fap30 (TYPE C) or Fap30 (TYPE B)</p>
-            <button class="btn" onclick="handleSharedFileBtn()">
+            <!-- <button class="btn" onclick="handleSharedFileBtn()"> -->
+            <button class="btn" onclick="serviceUnavailable('Shared NIN File')">
               Use Service
             </button>
             <div class="price">from ₦40,000</div>
