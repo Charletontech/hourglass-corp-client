@@ -681,6 +681,17 @@ async function handleSharedFileBtn() {
     });
 }
 
+async function serviceUnavailable(serviceName) {
+  Swal.fire({
+    position: "center",
+    icon: "info",
+    title: "Service Unavailable",
+    text: `"${serviceName}" is currently unavailable. Please check back later.`,
+    showConfirmButton: true,
+    confirmButtonColor: "#044c6c",
+  });
+}
+
 // REQUEST HISTORY LOGIC
 const tableBody = document.querySelector("#requestTable tbody");
 tableBody.innerHTML =
