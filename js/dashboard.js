@@ -281,6 +281,13 @@ function submitNinValidation(ninValidationType, nin) {
 
 // handle suspended NIN service
 async function handleSuspendedNinBtn() {
+    await Swal.fire({
+    title: "Disclaimer!",
+    text: "Ensure data submitted has been recaptured, contrary will lead to bad report...",
+    confirmButtonText: "I understand",
+    confirmButtonColor: "#044c6c",
+  });
+  
   const { value: nin } = await Swal.fire({
     title: "Enter your NIN",
     input: "text",
